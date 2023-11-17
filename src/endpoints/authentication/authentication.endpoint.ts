@@ -16,6 +16,7 @@ export class AuthenticationEndpoint extends BaseEndpoint {
   public async getTokens() {
     const response = await this._apiClient.callKickApi({ endpoint: 'kick-token-provider' })
     if (response.status !== 200) {
+      console.log(response.status, response.body)
       throw new KientApiError({
         name: 'SOMETHING_WENT_WRONG',
         message: 'Failed to retrieve pre-login tokens'
