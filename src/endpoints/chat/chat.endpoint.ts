@@ -67,15 +67,6 @@ export class ChatEndpoint extends BaseEndpoint {
   }
 
   public async pinMessage(channel: string, messageId: string) {
-    const body: PinMessageInput = {
-      message: {
-        id: messageId,
-        content: 'dummy',
-        type: 'message'
-      },
-      duration: 20
-    }
-
     const response = await this._apiClient.callKickApi({
       endpoint: `api/v2/channels/${channel}/pinned-message`,
       method: 'post'
